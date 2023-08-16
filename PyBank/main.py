@@ -41,7 +41,7 @@ with open(budget_csv, 'r') as csvfile:
     caverage="{:,.2f}".format(average)
     print(f'Average Change: ${caverage}')
 
-print(min(Changelist))
+#print(min(Changelist))
 maxindex=Changelist.index(max(Changelist))
 maxdate=Monthlist[maxindex]
 print(f'Greatest Increase in Profits: {maxdate} (${max(Changelist)})')
@@ -49,4 +49,17 @@ print(f'Greatest Increase in Profits: {maxdate} (${max(Changelist)})')
 minindex=Changelist.index(min(Changelist))
 mindate=Monthlist[minindex]
 print(f'Greatest Decrease in Profits: {mindate} (${min(Changelist)})')
+
+# Specify the file to write to
+output_path = os.path.join(".", "analysis", "new.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as txtfile:
+    txtfile.write('Financial Analysis\n------------------------\n')
+    txtfile.write(f'Total Months: {count}\n')
+
+    txtfile.write(f'Total: ${s}\n')
+    txtfile.write(f'Average Change: ${caverage}\n')
+    txtfile.write(f'Greatest Increase in Profits: {maxdate} (${max(Changelist)})\n')
+    txtfile.write(f'Greatest Decrease in Profits: {mindate} (${min(Changelist)})\n')
 
